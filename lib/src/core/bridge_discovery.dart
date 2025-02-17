@@ -16,7 +16,7 @@ class BridgeDiscovery {
     final result = <DiscoveryResult>[];
 
     final List<ActiveHost> hueDevices =
-        await MdnsScanner.findingMdnsWithAddress('_hue._tcp');
+        await MdnsScannerService.instance.findingMdnsWithAddress('_hue._tcp');
 
     for (final ActiveHost activeHost in hueDevices) {
       result.add(await manual(activeHost.address));
